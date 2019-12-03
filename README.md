@@ -39,26 +39,25 @@ https://www.odata.org/getting-started/basic-tutorial
 
 ### ![Swashbuckle](Docs/Images/Swashbuckle-icon.png) Swashbuckle 
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.0
-When consuming a Web API, understanding its various methods can be challenging for a developer. Swagger, also known as OpenAPI, solves the problem of generating useful documentation and help pages for Web APIs. It provides benefits such as interactive documentation, client SDK generation, and API discoverability.
+> When consuming a Web API, understanding its various methods can be challenging for a developer. Swagger, also known as OpenAPI, solves the problem of generating useful documentation and help pages for Web APIs. It provides benefits such as interactive documentation, client SDK generation, and API discoverability.
 
 ### ![NUnit](Docs/Images/NUnit-icon.png) NUnit
 https://nunit.org
-NUnit is a unit-testing framework for all .Net languages. Initially ported from JUnit, the current production release, version 3, has been completely rewritten with many new features and support for a wide range of .NET platforms.
+> NUnit is a unit-testing framework for all .Net languages. Initially ported from JUnit, the current production release, version 3, has been completely rewritten with many new features and support for a wide range of .NET platforms.
 
 ### ![Moq](Docs/Images/Moq-icon.png) Moq
 https://github.com/Moq/moq4/wiki/Quickstart
-The most popular and friendly mocking library for .NET
+? The most popular and friendly mocking library for .NET
 
 
 ## Patterns we are trying to implement:
 
 ### The Mediator design pattern
-The Mediator design pattern defines an object which encapsulates how a set of objects interact with each other. 
-You can think of a Mediator object as a kind of traffic-coordinator; it directs traffic to appropriate parties based on its own state or outside values. Further, Mediator promotes loose coupling (a good thing!) by keeping objects from referring to each other explicitly.
+> The Mediator design pattern defines an object which encapsulates how a set of objects interact with each other. 
+> You can think of a Mediator object as a kind of traffic-coordinator; it directs traffic to appropriate parties based on its own state or outside values. Further, Mediator promotes loose coupling (a good thing!) by keeping objects from referring to each other explicitly.
 
 ### Command and Query Responsibility Segregation (CQRS) pattern
-Command and Query Responsibility Segregation (CQRS) pattern
-Segregate operations that read data from operations that update data by using separate interfaces. This can maximize performance, scalability, and security. Supports the evolution of the system over time through higher flexibility, and prevents update commands from causing merge conflicts at the domain level.
+> Segregate operations that read data from operations that update data by using separate interfaces. This can maximize performance, scalability, and security. Supports the evolution of the system over time through higher flexibility, and prevents update commands from causing merge conflicts at the domain level.
 
 ### No need for repositories and unit of work with Entity Framework Core
 Please read https://gunnarpeipman.com/ef-core-repository-unit-of-work
