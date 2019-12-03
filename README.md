@@ -47,7 +47,7 @@ https://nunit.org
 
 ### ![Moq](Docs/Images/Moq-icon.png) Moq
 https://github.com/Moq/moq4/wiki/Quickstart
-? The most popular and friendly mocking library for .NET
+> The most popular and friendly mocking library for .NET
 
 
 ## Patterns we are trying to implement:
