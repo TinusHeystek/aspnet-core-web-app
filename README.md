@@ -15,7 +15,7 @@ EF Core can serve as an object-relational mapper (O/RM), enabling .NET developer
 
 ### ![MediatR](Docs/Images/MediatR-icon.png) Mediatr
 https://github.com/jbogard/MediatR/wiki
-> MediatR is essentially a library that allows in process messaging – which in turn allows you to follow the Mediator Pattern!
+> MediatR is essentially a library that allows in process messaging â€“ which in turn allows you to follow the Mediator Pattern!
 
 ### ![AutoMapper](Docs/Images/AutoMapper-icon.png) AutoMapper
 https://automapper.org/
@@ -41,7 +41,7 @@ https://www.odata.org/getting-started/basic-tutorial
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.0
 When consuming a Web API, understanding its various methods can be challenging for a developer. Swagger, also known as OpenAPI, solves the problem of generating useful documentation and help pages for Web APIs. It provides benefits such as interactive documentation, client SDK generation, and API discoverability.
 
-### ![NUnit](Docs/Images/Nunit-icon.png) NUnit
+### ![NUnit](Docs/Images/NUnit-icon.png) NUnit
 https://nunit.org
 NUnit is a unit-testing framework for all .Net languages. Initially ported from JUnit, the current production release, version 3, has been completely rewritten with many new features and support for a wide range of .NET platforms.
 
