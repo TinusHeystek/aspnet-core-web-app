@@ -33,8 +33,6 @@ https://flurl.dev
 https://docs.microsoft.com/en-us/odata
 https://www.odata.org
 https://www.odata.org/getting-started/basic-tutorial
-> To use the Preview (Nightly) version add (https://www.myget.org/F/webapinetcore/api/v3/index.json) to your NuGet Package Sources
-
 > The Open Data Protocol (OData) is a data access protocol built on core protocols like HTTP and commonly accepted methodologies like REST for the web.
 
 ### ![Swashbuckle](Docs/Images/Swashbuckle-icon.png) Swashbuckle 
@@ -77,3 +75,4 @@ Integration Tests to test all exposed enpoints and Event messages, By hosting th
  - Add SignalR for near real time updates to UI
  - Create NuGet Package of core and shared projects for package reuse
  - Project and NuGet Package Semantic Versioning
+ - Add Polly for resilience and transient-fault-handling 
