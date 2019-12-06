@@ -32,7 +32,7 @@ namespace Example.App.CQS.Commands
         public async Task<CommandResult> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
         {
             await _contactValidator.ValidateAndThrowAsync(request.ContactModel, ContactValidator.UpdateRuleSet, cancellationToken);
-            var entity = await _mediator.Send(new GetContactByIdQuery(request.ContactModel.Id), cancellationToken);
+            var entity = await _mediator.Send(new GetContactModelByIdQuery(request.ContactModel.Id), cancellationToken);
             _mapper.Map(request.ContactModel, entity);
 
             _context.Entry(entity).State = EntityState.Modified;

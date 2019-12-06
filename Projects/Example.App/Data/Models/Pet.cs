@@ -1,6 +1,8 @@
-﻿namespace Example.App.Data.Models
+﻿using Example.Shared.Core.Models;
+
+namespace Example.App.Data.Models
 {
-    public class Pet
+    public class Pet : IId
     {
         public int Id { get; set; }
         public string Name { get; set; }

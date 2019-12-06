@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Example.App.Controllers.ODataControllers.Interfaces;
 using Example.App.CQS.Queries;
@@ -20,17 +19,10 @@ namespace Example.App.Controllers.ODataControllers
 
         // http://localhost:5000/odata/ContactSummary?$filter=eyeColor eq 'Blue' and initials eq 'M'&$count=true
         [EnableQuery(PageSize = 20)]
-        public async Task<IActionResult> Get(CancellationToken cancellationToken = new CancellationToken())
+        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             var query = await _mediator.Send(new GetContactSummaryQuery(), cancellationToken);
             return Ok(query);
-        }
-
-        [EnableQuery]
-        public async Task<IActionResult> Get([FromODataUri] long key, CancellationToken cancellationToken = new CancellationToken())
-        {
-            var query = await _mediator.Send(new GetContactSummaryQuery(), cancellationToken);
-            return Ok(query.FirstOrDefault(c => c.Id == key));
         }
     }
 }

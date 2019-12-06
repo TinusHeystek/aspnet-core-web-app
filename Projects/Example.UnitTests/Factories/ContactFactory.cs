@@ -110,5 +110,23 @@ namespace Example.UnitTests.Factories
                 Address = AddressInfo
             };
         }
+
+        public static Contact GetContact(int id)
+        {
+            var contact = GetContact();
+            contact.Id = id;
+            contact.Address.Id = id;
+            contact.Pets.ForEach(p => p.Id = id);
+            return contact;
+        }
+
+        public static ContactModel GetContactModel(int id)
+        {
+            var contactModel = GetContactModel();
+            contactModel.Id = id;
+            contactModel.Address.Id = id;
+            contactModel.Pets.ForEach(p => p.Id = id);
+            return contactModel;
+        }
     }
 }

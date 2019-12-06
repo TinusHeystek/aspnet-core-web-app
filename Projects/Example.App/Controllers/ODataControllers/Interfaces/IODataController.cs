@@ -6,7 +6,6 @@ namespace Example.App.Controllers.ODataControllers.Interfaces
 {
     public interface IODataController
     {
-        Task<IActionResult> Get(CancellationToken cancellationToken = new CancellationToken());
-        Task<IActionResult> Get(long key, CancellationToken cancellationToken = new CancellationToken());
+        Task<IActionResult> GetAsync(CancellationToken cancellationToken = new CancellationToken());
     }
 }
