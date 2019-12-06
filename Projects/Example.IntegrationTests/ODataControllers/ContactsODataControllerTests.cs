@@ -27,9 +27,11 @@ namespace Example.IntegrationTests.ODataControllers
         [Test]
         public async Task GenerateContacts_WhenCalled_Returns_Contacts_OfCount()
         {
-            var response = await _client.GetByKey(1);
+            const int id = 2;
+            var response = await _client.GetById(id);
 
             Assert.IsNotNull(response);
+            Assert.AreEqual(id, response.Id);
         }
     }
 }

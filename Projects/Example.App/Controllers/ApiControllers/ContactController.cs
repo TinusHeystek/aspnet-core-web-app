@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Example.App.CQS.Queries;
-using Example.App.Data.Models;
 using Example.App.Shared.Interfaces.ApiControllers;
 using Example.App.Shared.Models.Commands;
 using Example.App.Shared.Models.View;
@@ -20,44 +18,38 @@ namespace Example.App.Controllers.ApiControllers
     public class ContactController : BaseApiController, IContactController
     {
         private readonly IMediator _mediator;
-        private readonly IMapper _mapper;
 
-        public ContactController(IMediator mediator, IMapper mapper)
+        public ContactController(IMediator mediator)
         {
             _mediator = mediator;
-            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<PagedResult<ContactModel>> Get(int page, int pageSize, CancellationToken cancellationToken)
         {
-            var query = await _mediator.Send(new GetContactsQuery(), cancellationToken);
-            var result = query.GetPaged<Contact, ContactModel>(_mapper, page, pageSize);
-            return result;
+            var query = await _mediator.Send(new GetContactsModelQuery(), cancellationToken);
+            return query.GetPaged(page, pageSize);
         }
 
         [HttpGet(nameof(GetSummary))]
         public async Task<PagedResult<ContactSummary>> GetSummary(int page, int pageSize, CancellationToken cancellationToken)
         {
             var query = await _mediator.Send(new GetContactSummaryQuery(), cancellationToken);
-            var result = query.GetPaged(page, pageSize);
-            return result;
+            return query.GetPaged(page, pageSize);
         }
 
         [HttpGet(nameof(GetAll))]
         public async Task<IEnumerable<ContactModel>> GetAll(CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetContactsQuery(), cancellationToken);
-            var models = _mapper.Map<List<ContactModel>>(await result.ToListAsync(cancellationToken));
-            return models;
+            var result = await _mediator.Send(new GetContactsModelQuery(), cancellationToken);
+            return await result.ToListAsync(cancellationToken);
         }
 
         [HttpGet("{id}")]
         public async Task<ContactModel> GetById(int id, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetContactByIdQuery(id), cancellationToken);
-            var model = _mapper.Map<ContactModel>(result);
-            return model;
+            var result = await _mediator.Send(new GetContactModelByIdQuery(id), cancellationToken);
+            return result;
         }
 
         [HttpGet(nameof(Count))]

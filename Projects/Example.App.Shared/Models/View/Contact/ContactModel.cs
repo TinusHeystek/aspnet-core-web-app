@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Example.App.Shared.Enums;
+using Example.Shared.Core.Models;
 
 namespace Example.App.Shared.Models.View.Contact
 {
-    public class ContactModel
+    public class ContactModel : IId
     {
         public int Id { get; set; }
         public string Name { get; set; }

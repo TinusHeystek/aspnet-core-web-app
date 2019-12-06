@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Example.Shared.Core.Clients.ApiClients;
 using Example.Shared.Core.Models;
@@ -21,12 +22,15 @@ namespace Example.Shared.Core.Clients.ODataClients
             return await url.GetJsonAsync<PageResult<T>>(cancellationToken);
         }
 
-        public async Task<T> GetByKey(int key, string select = null, string expand = null,
+        public async Task<T> GetById(int id, string select = null, string expand = null,
             CancellationToken cancellationToken = new CancellationToken())
         {
-            var url = ApiRouteBase.AppendPathSegment(key);
+            var url = ApiRouteBase.AppendPathSegment(id);
             url = BuildODataUrl(url, select, expand);
-            return await url.GetJsonAsync<T>(cancellationToken);
+            var result = await url
+                .SetQueryParam("$filter", $"id eq {id}")
+                .GetJsonAsync<PageResult<T>>(cancellationToken);
+            return result.Items.FirstOrDefault();
         }
 
         public string BuildODataUrl(string url, string select = null, string expand = null, string filter = null, 

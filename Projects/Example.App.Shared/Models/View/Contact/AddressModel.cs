@@ -1,6 +1,8 @@
-﻿namespace Example.App.Shared.Models.View.Contact
+﻿using Example.Shared.Core.Models;
+
+namespace Example.App.Shared.Models.View.Contact
 {
-    public class AddressModel
+    public class AddressModel : IId
     {
         public int Id { get; set; }
         public string AddressInfo { get; set; }
